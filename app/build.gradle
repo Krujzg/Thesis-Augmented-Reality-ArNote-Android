@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.thesis.project"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        customDebugType {
+            debuggable true
+        }
+    }
+    dataBinding {
+        enabled = true
+        enabledForTests = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {jvmTarget = "1.8"}
+
+    testOptions.unitTests {includeAndroidResources = true}
+}
+
+
+dependencies {
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.google.ar:core:1.16.0"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.14.0"
+    implementation "com.google.ar.sceneform:assets:1.14.0"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$corektxVersion"
+    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
+    implementation "com.google.firebase:firebase-database:$firebase_database_version"
+    implementation "com.google.android.gms:play-services-auth:$gms_play_services_auth_version"
+    //AutofitTextview
+    implementation "me.grantland:autofittextview:$autofittextview_version"
+
+    // material dialogs
+    implementation "com.afollestad.material-dialogs:core:$matieral_dialogs_version"
+
+    // testImplementation for pure JVM unit tests
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    // androidTestImplementation for Android instrumentation tests
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    //Mockk
+    testImplementation "io.mockk:mockk:$mockkVersion"
+
+    // AndroidX Test - JVM testing
+    androidTestImplementation "androidx.test:runner:$androidXTestCoreVersion"
+    androidTestImplementation "androidx.test:core:$androidXTestCoreVersion"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$junitAndroidTestVersion"
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
+
+    //Test Parameters
+    testImplementation "pl.pragmatists:JUnitParams:$testParameters"
+
+    // Dependencies for Android instrumented unit tests
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    //GoogleSignIn
+    implementation "com.google.android.gms:play-services-auth:$googleSignInVersion"
+
+    //Room dependency
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "com.github.takusemba:multisnaprecyclerview:$multisnaprecycleviewVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+
+
+
+}

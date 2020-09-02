@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "955546760803",
+    "firebase_url": "https://cloudanchorthesis.firebaseio.com",
+    "project_id": "cloudanchorthesis",
+    "storage_bucket": "cloudanchorthesis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955546760803:android:94db788ae80768bb206a56",
+        "android_client_info": {
+          "package_name": "com.thesis.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955546760803-b5pfn30205m5jkj3hp52kuqme07fa37v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtmBTnGA6nCKUQ11UJ7NPTct_HvCVx31g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955546760803-b5pfn30205m5jkj3hp52kuqme07fa37v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
