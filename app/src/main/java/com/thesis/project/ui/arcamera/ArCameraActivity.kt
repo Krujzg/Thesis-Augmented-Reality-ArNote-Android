@@ -3,12 +3,15 @@ package com.thesis.project.ui.arcamera
 import android.R.layout.simple_spinner_dropdown_item
 import android.R.layout.simple_spinner_item
 import android.os.Bundle
+import android.os.Handler
 import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import android.widget.ArrayAdapter.createFromResource
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatSpinner
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.google.ar.core.Anchor
@@ -22,6 +25,8 @@ import com.thesis.project.R
 import com.thesis.project.R.array.spinner_choices
 import com.thesis.project.controller.OkListener
 import com.thesis.project.controller.UiTextRenderable
+import com.thesis.project.databinding.ActivityArcameraBinding
+import com.thesis.project.models.arnote.ArNote
 import com.thesis.project.models.enums.AppAnchorState
 import com.thesis.project.models.enums.AppAnchorState.*
 import com.thesis.project.repository.firebase.StorageManager
@@ -29,11 +34,15 @@ import com.thesis.project.repository.firebase.interfaces.ShortCodeListener
 import com.thesis.project.util.ResolveDialogFragment
 import com.thesis.project.util.SnackbarHelper
 import kotlinx.android.synthetic.main.activity_arcamera.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ArCameraActivity : AppCompatActivity(), OkListener {
 
     companion object{ var spinner: Spinner? =  null }
 
+    private lateinit var arCameraActivityViewModel : ArCameraActivityViewModel
+    var currentArNote : ArNote? = null
     private var snackbarHelper = SnackbarHelper()
     private var cloudAnchor : Anchor? = null
     private var appAnchorState = NONE
@@ -52,17 +61,25 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
     private var node: UiTextRenderable? = null
     private lateinit var clearButton: Button
     private lateinit var resolveButton: Button
+    private var nextShortCode : Int? = null
+    private var cloud_anchorId : String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_arcamera)
 
-        storageManager =
-            StorageManager(this)
+        arCameraActivityViewModel = ViewModelProvider(this).get(ArCameraActivityViewModel::class.java)
+
+        DataBindingUtil.setContentView<ActivityArcameraBinding>(this,R.layout.activity_arcamera).apply {
+            this.lifecycleOwner = this@ArCameraActivity
+            this.arCameraModel = arCameraActivityViewModel
+        }
+
+        storageManager = StorageManager(this)
         fragmentSetup()
         fragmentSetOnTapArPlaneListener()
         showFilterDialog()
+
         setting_button.setOnClickListener{ showFilterDialog() }
         back_button.setOnClickListener{ onBackPressed() }
     }
@@ -123,7 +140,7 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         anchorNode = AnchorNode(anchor)
         wantedText = edittextWantedTextEdit!!.text.toString()
         if (wantedText.isNullOrEmpty()){wantedText = "Missing text....."}
-        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true)
+        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true,storageManager.resolvedArNote)
         node!!.setParent(anchorNode)
         fragment.arSceneView.scene.addChild(anchorNode)
         node!!.select()
@@ -141,7 +158,10 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
             HOSTING ->
             {
                 if (cloudState.isError){ afterCloudAnchorStateCheck(NONE,"Error hosting anchor.. ") }
-                else if (cloudState == Anchor.CloudAnchorState.SUCCESS){ appAnchorState_Hosting_cloudAnchorState_Success()}
+                else if (cloudState == Anchor.CloudAnchorState.SUCCESS){
+                    appAnchorState_Hosting_cloudAnchorState_Success()
+                    Handler().postDelayed({insertArNoteIntoLocalDb()},10000)
+                }
             }
             RESOLVING ->
             {
@@ -176,7 +196,10 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
                     snackbarHelper.showMessageWithDismiss(this@ArCameraActivity, "Could not get shortCode")
                     return
                 }
-                storageManager.storeUsingShortCode(shortCode, cloudAnchor!!.cloudAnchorId)
+                nextShortCode = shortCode
+                initializeArNoteModel()
+                storageManager.storeUsingShortCode(shortCode, cloudAnchor!!.cloudAnchorId,currentArNote!!.type,currentArNote!!.text, currentArNote!!.date)
+                currentArNote!!.cloudAnchorId = storageManager.storedCloudAnchorId
                 snackbarHelper.showMessageWithDismiss(this@ArCameraActivity,"Anchor hosted! Cloud Short Code: $shortCode")
                 Toast.makeText(applicationContext,"Anchor hosted! Cloud Short Code: $shortCode", Toast.LENGTH_SHORT).show()
             }
@@ -217,4 +240,22 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         shortCode = dialogValue.toInt()
         getCloudAnchorId(shortCode!!)
     }
+
+    private fun initializeArNoteModel()
+    {
+        val type = typeOfArnoteSelector()
+        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+        val currentDate = sdf.format(Date())
+        cloud_anchorId = "0"
+        currentArNote = ArNote(
+            type = type,
+            text = wantedText!!,
+            date = currentDate,
+            shortcode = nextShortCode!!.toString(),
+            cloudAnchorId = cloud_anchorId!!)
+    }
+
+    private fun insertArNoteIntoLocalDb() { arCameraActivityViewModel.insertNodeIntoLocalDb(currentArNote!!) }
+
+    private fun typeOfArnoteSelector() : String = spinner!!.selectedItem.toString()
 }

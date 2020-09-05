@@ -50,10 +50,8 @@ class LoginActivityViewModel(application: Application) :AndroidViewModel(applica
 
     private fun delayLoginCheck() : Boolean
     {
-        var loginStatus =false
-        Thread.sleep(500)
-        loginStatus = loginCheck()
-        return loginStatus
+        Thread.sleep(700)
+        return loginCheck()
     }
 
     private fun loginCheck() : Boolean

@@ -33,5 +33,6 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="blue">#0356fc</color>
+    <color name="gold">#FFD700</color>
 
 </resources>

@@ -12,17 +12,19 @@ import com.google.ar.sceneform.rendering.ViewRenderable
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.ar.sceneform.ux.TransformationSystem
 import com.thesis.project.R
+import com.thesis.project.models.arnote.ArNote
 import com.thesis.project.ui.arcamera.ArCameraActivity
 import com.thesis.project.ui.main.MainActivity
 import me.grantland.widget.AutofitTextView
 
 
-class UiTextRenderable(context: Context,transformationSystem: TransformationSystem,text: String,size: Float, private var billboarding: Boolean):TransformableNode(transformationSystem), Node.OnTapListener
+class UiTextRenderable(context: Context,transformationSystem: TransformationSystem,text: String,size: Float, private var billboarding: Boolean, resolvedArNote: ArNote):TransformableNode(transformationSystem), Node.OnTapListener
 {
     companion object { var arAutoFitTextView: AutofitTextView? = null }
 
     private var uiElement = Node()
 
+    private var resolvedArNote : ArNote?
     private lateinit var cameraPosition : Vector3
     private lateinit var uiPosition: Vector3
     private lateinit var direction: Vector3
@@ -33,6 +35,7 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
         uiElement.setParent(this)
         uiElement.isEnabled = true
         uiElement.localPosition = Vector3(0.0f, size, 0.0f)
+        this.resolvedArNote = resolvedArNote
 
         viewRenderableBuilder(context,text)
 
@@ -60,7 +63,13 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
 
     private fun spinnerSelector(context: Context)
     {
-        when (ArCameraActivity.spinner!!.selectedItem)
+        var type = ArCameraActivity.spinner!!.selectedItem.toString()
+        when(resolvedArNote)
+        {
+            null -> {}
+            else -> type = resolvedArNote!!.type
+        }
+        when (type)
         {
             "Normal" -> {arAutoFitTextViewCustomization(context,
                 R.drawable.rounded_corner_normal,
@@ -75,11 +84,14 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
                 R.color.white
             )}
         }
+        resolvedArNote = null
     }
 
     private fun viewRenderableBuilder(context: Context, text: String)
     {
+
         ViewRenderable.builder()
+
             .setView(context, R.layout.label_layout)
             .build()
             .thenAccept { uiRenderable: ViewRenderable ->
@@ -87,7 +99,13 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
                 uiRenderable.isShadowReceiver = false
                 uiElement.renderable = uiRenderable
                 arAutoFitTextView = uiRenderable.view.findViewById(R.id.arAutoFitTextView)
-                arAutoFitTextView!!.text = text
+
+                when(resolvedArNote)
+                {
+                    null-> arAutoFitTextView!!.text = text
+                    else -> arAutoFitTextView!!.text = resolvedArNote!!.text
+                }
+
                 spinnerSelector(context)
             }.exceptionally { throwable: Throwable? -> throw AssertionError("Could not create ui element",throwable )}
     }

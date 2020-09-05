@@ -18,10 +18,8 @@ data class ArNote (
     @ColumnInfo(name="date")
     var date: String= "",
 
-    @ColumnInfo(name="latitude")
-    var latitude: Double= -1.0,
+    @ColumnInfo(name="shortcode")
+    var shortcode: String ="",
 
-    @ColumnInfo(name="longitude")
-    var longitude: Double= -1.0
-
-)
+    @ColumnInfo(name="cloudAnchorId")
+    var cloudAnchorId: String ="")

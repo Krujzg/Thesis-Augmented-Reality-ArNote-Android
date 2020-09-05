@@ -9,15 +9,6 @@
     android:gravity="center"
     android:id="@+id/ll">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Menu"
-        android:textStyle="bold|italic"
-        android:textSize="50sp"
-        android:textColor="@color/white"
-        android:layout_marginBottom="45dp"
-        />
     <LinearLayout
         android:clipToPadding="false"
         android:gravity="center"

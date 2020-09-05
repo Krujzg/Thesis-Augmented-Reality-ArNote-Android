@@ -39,6 +39,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions {
+        checkReleaseBuilds false
+    }
 
     kotlinOptions {jvmTarget = "1.8"}
 
@@ -116,6 +119,11 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
 
 
 

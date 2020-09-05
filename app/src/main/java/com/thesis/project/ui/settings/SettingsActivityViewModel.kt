@@ -53,7 +53,6 @@ class SettingsActivityViewModel(application: Application) : AndroidViewModel(app
 
     private fun checkIfThePasswordsAreEquals() : Boolean =  displayPassword.value == displayPasswordAgain.value
 
-
     fun updateUserInLocalDb()
     {
         if (checkIfTheEditTextsValuesAreNullOrEmpty())
