@@ -7,4 +7,41 @@
     </string-array>
 
     <string name="cameraoptions">⋮</string>
+    <string name="edittext_username_login_hint">Username</string>
+    <string name="edittext_password_login_hint">Password</string>
+    <string name="log_in_button_text">Log in</string>
+    <string name="register_text_text">Don\'t have an account? Register!</string>
+    <string name="ar_note_menu_Text">AR Note</string>
+    <string name="arnote_menu_desc">Place your Augmented Reality note</string>
+    <string name="main_mynotes_text">My Notes</string>
+    <string name="main_mynotes_desc">Check your notes</string>
+    <string name="main_settings_text">Settings</string>
+    <string name="main_settings_desc">Change your data</string>
+    <string name="main_logout_text">Logout</string>
+    <string name="main_logout_desc">Logout from the app</string>
+    <string name="register_username_hint">Username</string>
+    <string name="register_email_hint">Email</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_password_again_hint">Password again</string>
+    <string name="register_button_text">Register</string>
+    <string name="resolve_button_text">Resolve</string>
+    <string name="clear_button_text">Clear</string>
+    <string name="textview_ActionButtons">Action buttons</string>
+    <string name="negative_button_text">Cancel</string>
+    <string name="positive_button_text">Apply</string>
+    <string name="arnote_text">ArNote Text:</string>
+    <string name="spinner_selector_title">ArNote type:</string>
+    <string name="recycler_item_arnote_model_title_shortcode_text">Shortcode:</string>
+    <string name="recycler_item_arnote_model_title_type_text">Type:</string>
+    <string name="recycler_item_arnote_model_title_date_text">Date:</string>
+    <string name="recycler_item_arnote_model_title_text_text">Text:</string>
+    <string name="settings_username_title">Username</string>
+    <string name="settings_username_hint">Username</string>
+    <string name="settings_email_title">Email</string>
+    <string name="settings_email_hint">Email</string>
+    <string name="settings_password_title">New password</string>
+    <string name="settings_new_password_title">New password again</string>
+    <string name="settings_password_hint">Password</string>
+    <string name="settings_new_password_hint">Password</string>
+    <string name="settings_button_save_text">Save</string>
 </resources>

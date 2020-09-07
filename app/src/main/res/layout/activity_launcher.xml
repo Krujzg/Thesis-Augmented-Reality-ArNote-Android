@@ -19,8 +19,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:padding="64dp"
+        android:padding="@dimen/launcher_relativelayout_padding"
         tools:context=".activities.LauncherActivity">
 
         <ImageView

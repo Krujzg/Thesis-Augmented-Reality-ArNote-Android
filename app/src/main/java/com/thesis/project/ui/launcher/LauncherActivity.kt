@@ -48,10 +48,7 @@ class LauncherActivity : AppCompatActivity() {
 
     private fun delayAppStartToBeAbleToSeeAppLaunchPage()
     {
-        Handler().postDelayed({
-                decideWhichActivityToStartByCheckingIfTheAppWasLaunchedBefore()
-                finish()
-            }, SPLASH_TIME)
+        Handler().postDelayed({ decideWhichActivityToStartByCheckingIfTheAppWasLaunchedBefore();finish() }, SPLASH_TIME)
     }
 
     private fun decideWhichActivityToStartByCheckingIfTheAppWasLaunchedBefore()

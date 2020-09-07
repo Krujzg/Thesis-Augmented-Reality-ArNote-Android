@@ -13,12 +13,14 @@ constructor(mContext: Context)
 
     fun isNotFirstTimeLaunched()= !mPreferences.getBoolean(FIRST_TIME, true)
 
-    init {
+    init
+    {
         mPreferences = mContext.getSharedPreferences(PREFERENCE_CONFIGURATION_NAME, PRIVATE_MODE)
         mEditor = mPreferences.edit()
     }
 
-    fun setFirstTimeLaunched() {
+    fun setFirstTimeLaunched()
+    {
         mEditor.putBoolean(FIRST_TIME, false)
         mEditor.commit()
     }

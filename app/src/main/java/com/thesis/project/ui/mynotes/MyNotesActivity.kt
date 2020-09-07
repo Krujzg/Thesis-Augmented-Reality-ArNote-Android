@@ -25,7 +25,6 @@ class MyNotesActivity : AppCompatActivity()
         myNotesActivityViewModel = ViewModelProvider(this).get(MyNotesActivityViewModel::class.java)
         arNoteActivityAdapter = MyNotesAdapter(this)
         setRecyclerViewComponents()
-
     }
 
     private fun setRecyclerViewComponents()
@@ -39,7 +38,6 @@ class MyNotesActivity : AppCompatActivity()
         getDataFromTheViewModel()
     }
 
-    //ittt a baaaaj
     private fun getDataFromTheViewModel()
     {
         val currentArNoteLiveData  = myNotesActivityViewModel.getAllArNotes()

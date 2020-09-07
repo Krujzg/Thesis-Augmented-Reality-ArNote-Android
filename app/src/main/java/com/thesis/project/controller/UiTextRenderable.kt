@@ -18,7 +18,12 @@ import com.thesis.project.ui.main.MainActivity
 import me.grantland.widget.AutofitTextView
 
 
-class UiTextRenderable(context: Context,transformationSystem: TransformationSystem,text: String,size: Float, private var billboarding: Boolean, resolvedArNote: ArNote):TransformableNode(transformationSystem), Node.OnTapListener
+class UiTextRenderable(context: Context,
+                       transformationSystem: TransformationSystem,
+                       text: String,
+                       size: Float,
+                       private var billboarding: Boolean,
+                       resolvedArNote: ArNote?) :TransformableNode(transformationSystem), Node.OnTapListener
 {
     companion object { var arAutoFitTextView: AutofitTextView? = null }
 
@@ -32,9 +37,9 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
 
     init
     {
-        uiElement.setParent(this)
-        uiElement.isEnabled = true
-        uiElement.localPosition = Vector3(0.0f, size, 0.0f)
+        this.uiElement.setParent(this)
+        this.uiElement.isEnabled = true
+        this.uiElement.localPosition = Vector3(0.0f, size, 0.0f)
         this.resolvedArNote = resolvedArNote
 
         viewRenderableBuilder(context,text)
@@ -57,34 +62,25 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
         }
     }
 
-    //override fun onTap(hitTestResult: HitTestResult?, motionEvent: MotionEvent?) { showUiElement(!uiElement.isEnabled)}
-
-    //private fun showUiElement(show: Boolean) { uiElement.isEnabled = show }
-
     private fun spinnerSelector(context: Context)
     {
-        var type = ArCameraActivity.spinner!!.selectedItem.toString()
-        when(resolvedArNote)
-        {
-            null -> {}
-            else -> type = resolvedArNote!!.type
-        }
+        val type = getSelectedType()
         when (type)
         {
-            "Normal" -> {arAutoFitTextViewCustomization(context,
-                R.drawable.rounded_corner_normal,
-                R.color.white
-            )}
-            "Warning" -> {arAutoFitTextViewCustomization(context,
-                R.drawable.rounded_corner_warning,
-                R.color.Black
-            )}
-            "Urgent" -> {arAutoFitTextViewCustomization(context,
-                R.drawable.rounded_corner_urgent,
-                R.color.white
-            )}
+            "Normal" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_normal, R.color.white)
+            "Warning" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_warning, R.color.Black)
+            "Urgent" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_urgent, R.color.white)
         }
         resolvedArNote = null
+    }
+
+    private fun getSelectedType() : String
+    {
+        return when(resolvedArNote)
+        {
+            null -> ArCameraActivity.spinner!!.selectedItem.toString()
+            else -> resolvedArNote!!.type
+        }
     }
 
     private fun viewRenderableBuilder(context: Context, text: String)
@@ -99,15 +95,18 @@ class UiTextRenderable(context: Context,transformationSystem: TransformationSyst
                 uiRenderable.isShadowReceiver = false
                 uiElement.renderable = uiRenderable
                 arAutoFitTextView = uiRenderable.view.findViewById(R.id.arAutoFitTextView)
-
-                when(resolvedArNote)
-                {
-                    null-> arAutoFitTextView!!.text = text
-                    else -> arAutoFitTextView!!.text = resolvedArNote!!.text
-                }
-
+                setArAutoTextViewText(text)
                 spinnerSelector(context)
             }.exceptionally { throwable: Throwable? -> throw AssertionError("Could not create ui element",throwable )}
+    }
+
+    private fun setArAutoTextViewText(text: String)
+    {
+        when(resolvedArNote)
+        {
+            null-> arAutoFitTextView!!.text = text
+            else -> arAutoFitTextView!!.text = resolvedArNote!!.text
+        }
     }
 
     private fun arAutoFitTextViewCustomization(context: Context, backgroundlook : Int, color : Int)

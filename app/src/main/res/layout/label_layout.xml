@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clipChildren="false"
-    android:padding="24dp"
+    android:padding="@dimen/label_layout_linearlayout_padding"
     android:gravity="center"
     android:clipToPadding="false">
 
@@ -19,7 +19,7 @@
         android:maxLines="8"
         android:textColor="@color/white"
         android:singleLine="false"
-        android:textSize="20sp"
-        app:minTextSize="10sp" />
+        android:textSize="@dimen/autofittextview_textsize"
+        app:minTextSize="@dimen/autofittextview_minTextSize" />
 
 </LinearLayout>

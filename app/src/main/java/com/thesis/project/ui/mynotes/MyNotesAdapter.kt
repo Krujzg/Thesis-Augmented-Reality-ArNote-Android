@@ -34,26 +34,25 @@ class MyNotesAdapter(private var context: Context) : RecyclerView.Adapter<MyNote
 
     override fun getItemCount(): Int = arNoteList.size
 
-    inner class ViewHolder(private var view: View, private val recyclerItemArnoteModelBinding: RecyclerItemArnoteModelBinding)
-        : RecyclerView.ViewHolder(view)
+    inner class ViewHolder(private var view: View, private val recyclerItemArnoteModelBinding: RecyclerItemArnoteModelBinding) : RecyclerView.ViewHolder(view)
+    {
+        private val arnote_cardview : CardView = view.findViewById(R.id.recycler_cardview)
+        fun setData(arnote : ArNote)
         {
-            private val arnote_cardview : CardView = view.findViewById(R.id.recycler_cardview)
-            fun setData(arnote : ArNote)
-            {
-                imageViewColorSelector(arnote)
-                recyclerItemArnoteModelBinding.arNoteModel = arnote
-            }
-
-            private fun imageViewColorSelector(arnote : ArNote)
-            {
-                var drawableId = 0
-                when (arnote.type)
-                {
-                    "Normal" ->  drawableId = R.drawable.rounded_corner_normal
-                    "Warning" -> drawableId = R.drawable.rounded_corner_warning
-                    "Urgent" ->  drawableId = R.drawable.rounded_corner_urgent
-                }
-                arnote_cardview.setBackgroundResource(drawableId)
-            }
+            imageViewColorSelector(arnote)
+            recyclerItemArnoteModelBinding.arNoteModel = arnote
         }
+
+        private fun imageViewColorSelector(arnote : ArNote)
+        {
+            var drawableId = 0
+            when (arnote.type)
+            {
+                "Normal" ->  drawableId = R.drawable.rounded_corner_normal
+                "Warning" -> drawableId = R.drawable.rounded_corner_warning
+                "Urgent" ->  drawableId = R.drawable.rounded_corner_urgent
+            }
+            arnote_cardview.setBackgroundResource(drawableId)
+        }
+    }
 }

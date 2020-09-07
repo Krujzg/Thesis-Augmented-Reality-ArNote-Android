@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/main_linear_layout_padding"
     android:background="@color/turquoise"
     android:gravity="center"
     android:id="@+id/ll">
@@ -15,127 +15,142 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:id="@+id/arnote"
-            android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_width="@dimen/main_cardview_width"
+            android:layout_height="@dimen/main_cardview_height"
+            android:layout_margin="@dimen/main_main_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
+
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/main_imageview_width"
+                    android:layout_height="@dimen/main_imageview_heigth"
                     android:background="@drawable/cerclebackgroundpurple"
                     android:src="@drawable/arnote_logo_launcher_200x200"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/main_linear_layout_padding"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="AR Note"/>
+                    android:layout_marginTop="@dimen/main_main_margin"
+                    android:text="@string/ar_note_menu_Text"/>
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/main_view_heigth"
                     android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="@dimen/main_main_margin"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Place your Augmented Reality note"
-                    android:padding="5dp"
+                    android:text="@string/arnote_menu_desc"
+                    android:padding="@dimen/arnote_desc_padding"
                     android:textColor="@android:color/darker_gray"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/mynotes"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_width="@dimen/main_cardview_width"
+            android:layout_height="@dimen/main_cardview_height"
+            android:layout_margin="@dimen/main_main_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
+
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/main_imageview_width"
+                    android:layout_height="@dimen/main_imageview_heigth"
                     android:background="@drawable/cerclebackgroundpink"
                     android:src="@drawable/baseline_info_black_48"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/main_linear_layout_padding"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="My Notes"/>
+                    android:layout_marginTop="@dimen/main_main_margin"
+                    android:text="@string/main_mynotes_text"/>
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/main_view_heigth"
                     android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="@dimen/main_main_margin"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Check your notes"
-                    android:padding="5dp"
+                    android:text="@string/main_mynotes_desc"
+                    android:padding="@dimen/arnote_desc_padding"
                     android:textColor="@android:color/darker_gray"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
+
     <LinearLayout
         android:clipToPadding="false"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/settings"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_width="@dimen/main_cardview_width"
+            android:layout_height="@dimen/main_cardview_height"
+            android:layout_margin="@dimen/main_main_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
+
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/main_imageview_width"
+                    android:layout_height="@dimen/main_imageview_heigth"
                     android:background="@drawable/cerclebackgroundgreen"
                     android:src="@drawable/outline_settings_black_48"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/main_linear_layout_padding"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="Settings"/>
+                    android:layout_marginTop="@dimen/main_main_margin"
+                    android:text="@string/main_settings_text"/>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/main_view_heigth"
                     android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="@dimen/main_main_margin"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Change your data"
-                    android:padding="5dp"
+                    android:text="@string/main_settings_desc"
+                    android:padding="@dimen/arnote_desc_padding"
                     android:textColor="@android:color/darker_gray"/>
 
             </LinearLayout>
@@ -144,9 +159,9 @@
             android:id="@+id/logout"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_width="@dimen/main_cardview_width"
+            android:layout_height="@dimen/main_cardview_height"
+            android:layout_margin="@dimen/main_main_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,36 +170,34 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/main_imageview_width"
+                    android:layout_height="@dimen/main_imageview_heigth"
                     android:background="@drawable/cerclebackgroundyello"
-                    android:padding="10dp"
-                    android:src="@drawable/outline_power_settings_new_black_48" />
+                    android:src="@drawable/outline_power_settings_new_black_48"
+                    android:padding="@dimen/main_linear_layout_padding"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Logout"
+                    android:layout_marginTop="@dimen/main_main_margin"
+                    android:text="@string/main_logout_text"
                     android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/lightgray" />
+                    android:layout_height="@dimen/main_view_heigth"
+                    android:background="@color/lightgray"
+                    android:layout_margin="@dimen/main_main_margin"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Logout from the app"
+                    android:padding="@dimen/arnote_desc_padding"
+                    android:text="@string/main_logout_desc"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
-
 </LinearLayout>

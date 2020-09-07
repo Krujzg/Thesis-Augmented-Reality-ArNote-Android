@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
         <ImageView
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/login_imageview_margintop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arnote_logo_launcher_200x200"
@@ -30,27 +30,27 @@
 
         <EditText
             android:id="@+id/editText_username_login"
-            android:layout_width="320dp"
+            android:layout_width="@dimen/editText_username_login_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="@dimen/edittext_username_login_margintop"
             android:background="@drawable/gradienteditext"
             android:drawableStart="@drawable/ic_lightbulb_outline_black_24dp"
-            android:drawablePadding="10dp"
-            android:drawableTint="#fff"
-            android:hint="Username"
+            android:drawablePadding="@dimen/edittet_username_login_drawable_padding"
+            android:drawableTint="@color/white"
+            android:hint="@string/edittext_username_login_hint"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:text="@={loginUserModel.displayUserName}"/>
 
         <EditText
             android:id="@+id/edittext_password_login"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="15dp"
+            android:drawablePadding="@dimen/edittext_password_login_drawable_padding"
+            android:layout_marginTop="@dimen/edittext_password_login_margintop"
             android:drawableStart="@drawable/ic_lightbulb_outline_black_24dp"
             android:background="@drawable/gradienteditext"
-            android:layout_width="320dp"
+            android:layout_width="@dimen/edittext_password_login_width"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/edittext_password_login_hint"
             android:inputType="textPassword"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
@@ -63,19 +63,19 @@
             android:textColor="@color/white"
             android:foreground="?android:attr/selectableItemBackground"
             android:background="@drawable/gradienteditext"
-            android:layout_marginTop="40dp"
-            android:text="Log in"
-            android:layout_width="320dp"
+            android:layout_marginTop="@dimen/login_button_margintop"
+            android:text="@string/log_in_button_text"
+            android:layout_width="@dimen/login_button_width"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/register_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? Register!"
-            android:textSize="16sp"
+            android:text="@string/register_text_text"
+            android:textSize="@dimen/register_text_textSize"
             android:textColor="@color/blue"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/register_text_margintop"
             />
     </LinearLayout>
 </RelativeLayout>

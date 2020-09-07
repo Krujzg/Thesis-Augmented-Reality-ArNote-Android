@@ -33,10 +33,7 @@ class ResolveDialogFragment : DialogFragment() {
         {
             val context: Context = context!!
             val layout = LinearLayout(context)
-            shortCodeField = EditText(context)
-            shortCodeField!!.inputType = InputType.TYPE_CLASS_NUMBER
-            shortCodeField!!.layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-            shortCodeField!!.filters = arrayOf<InputFilter>(LengthFilter(8))
+            setShortCodeFieldParams()
             layout.addView(shortCodeField)
             layout.layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
             return layout
@@ -50,13 +47,20 @@ class ResolveDialogFragment : DialogFragment() {
             .setPositiveButton("OK")
             { dialog: DialogInterface?, which: Int ->
                 val shortCodeText = shortCodeField!!.text
-                if (okListener != null && shortCodeText != null && shortCodeText.isNotEmpty())
-                { // Invoke the callback with the current checked item.
-                    okListener!!.onOkPressed(shortCodeText.toString())
-                }
+                if (okListener != null && shortCodeText != null && shortCodeText.isNotEmpty()) { okListener!!.onOkPressed(shortCodeText.toString()) }
             }
             .setNegativeButton("Cancel") { dialog: DialogInterface?, which: Int -> }
         return builder.create()
+    }
+
+    private fun setShortCodeFieldParams()
+    {
+        shortCodeField = EditText(context)
+        shortCodeField.apply {
+            this!!.inputType = InputType.TYPE_CLASS_NUMBER
+            this.layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+            filters = arrayOf<InputFilter>(LengthFilter(8))
+        }
     }
 }
 

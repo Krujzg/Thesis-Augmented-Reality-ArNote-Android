@@ -68,12 +68,7 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arCameraActivityViewModel = ViewModelProvider(this).get(ArCameraActivityViewModel::class.java)
-
-        DataBindingUtil.setContentView<ActivityArcameraBinding>(this,R.layout.activity_arcamera).apply {
-            this.lifecycleOwner = this@ArCameraActivity
-            this.arCameraModel = arCameraActivityViewModel
-        }
+        viewModelSetup()
 
         storageManager = StorageManager(this)
         fragmentSetup()
@@ -84,6 +79,15 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         back_button.setOnClickListener{ onBackPressed() }
     }
 
+    private fun viewModelSetup()
+    {
+        arCameraActivityViewModel = ViewModelProvider(this).get(ArCameraActivityViewModel::class.java)
+        DataBindingUtil.setContentView<ActivityArcameraBinding>(this,R.layout.activity_arcamera).apply {
+            this.lifecycleOwner = this@ArCameraActivity
+            this.arCameraModel = arCameraActivityViewModel
+        }
+    }
+
     private fun fragmentSetup()
     {
         fragment =(supportFragmentManager.findFragmentById(R.id.sceneform_fragment) as CustomArFragment?)!!
@@ -91,11 +95,138 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         fragment.planeDiscoveryController.hide()
     }
 
-    private fun spinnerDataUpload()
+    private fun onUpdateFrame(frameTime: FrameTime) {checkUpdatedAnchor()}
+
+    @Synchronized
+    private fun checkUpdatedAnchor()
     {
-        createFromResource(this, spinner_choices, simple_spinner_item)
-            .also { adapter -> adapter.setDropDownViewResource(simple_spinner_dropdown_item)
-                spinner!!.adapter = adapter }
+        if (appAnchorState != HOSTING && appAnchorState != RESOLVING) {return}
+
+        cloudState = cloudAnchor!!.cloudAnchorState
+        when(appAnchorState)
+        {
+            HOSTING ->
+            {
+
+                if (cloudState.isError){ afterCloudAnchorStateCheck(NONE,"Error hosting anchor.. ") }
+                else if (cloudState == Anchor.CloudAnchorState.SUCCESS)
+                {
+                    appAnchorStateHostingCloudAnchorStateSuccess()
+                    delayInsertIntoLocalDb(10000)
+                }
+            }
+            RESOLVING ->
+            {
+                if (cloudState.isError){ afterCloudAnchorStateCheck(NONE,"Error resolving anchor.. ")}
+                else if (cloudState == Anchor.CloudAnchorState.SUCCESS) { afterCloudAnchorStateCheck(RESOLVED,"Anchor resolved successfully")}
+            }
+        }
+    }
+
+    private fun appAnchorStateHostingCloudAnchorStateSuccess()
+    {
+        storageManager.nextShortCode(object : ShortCodeListener
+        {
+            override fun onShortCodeAvailable(shortCode: Int?)
+            {
+                if (shortCode == null)
+                {
+                    snackbarHelper.showMessageWithDismiss(this@ArCameraActivity, "Could not get shortCode")
+                    return
+                }
+                nextShortCode = shortCode
+                initializeArNoteModel()
+                storageManager.storeUsingShortCode(shortCode, cloudAnchor!!.cloudAnchorId,currentArNote!!.text,currentArNote!!.type, currentArNote!!.date)
+                currentArNote!!.cloudAnchorId = storageManager.storedCloudAnchorId
+                snackbarHelper.showMessageWithDismiss(this@ArCameraActivity,"Anchor hosted! Cloud Short Code: $shortCode")
+                Toast.makeText(applicationContext,"Anchor hosted! Cloud Short Code: $shortCode", Toast.LENGTH_SHORT).show()
+            }
+        })
+        appAnchorState = HOSTED
+    }
+
+    private fun initializeArNoteModel()
+    {
+        val type = typeOfArnoteSelector()
+        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+        val currentDate = sdf.format(Date())
+        cloud_anchorId = "0"
+        currentArNote = ArNote(
+            type = type,
+            text = wantedText!!,
+            date = currentDate,
+            shortcode = nextShortCode!!.toString(),
+            cloudAnchorId = cloud_anchorId!!)
+    }
+
+
+    private fun delayInsertIntoLocalDb(delayTime : Long)
+    {
+        Handler().postDelayed({insertArNoteIntoLocalDb()},delayTime)
+    }
+
+    private fun afterCloudAnchorStateCheck(_appAnchorState: AppAnchorState, message : String)
+    {
+        snackbarHelper.showMessageWithDismiss(this@ArCameraActivity, message + cloudState)
+        appAnchorState = _appAnchorState
+    }
+
+    private fun fragmentSetOnTapArPlaneListener()
+    {
+        fragment.setOnTapArPlaneListener { hitResult: HitResult, plane: Plane, motionEvent: MotionEvent? ->
+
+            if (appAnchorState != NONE ) {return@setOnTapArPlaneListener}
+
+            newAnchor =fragment.arSceneView.session!!.hostCloudAnchor(hitResult.createAnchor())
+            setCloudAnchor(newAnchor)
+            appAnchorState = HOSTING
+            snackbarHelper.showMessage(this, "Now hosting anchor...")
+            addNodeToScene(fragment, cloudAnchor!!)
+        }
+    }
+
+    private fun setCloudAnchor(newAnchor: Anchor?)
+    {
+        if (cloudAnchor != null) {cloudAnchor!!.detach()}
+        cloudAnchor = newAnchor
+        appAnchorState = NONE
+    }
+
+    private fun addNodeToScene(fragment: ArFragment, anchor: Anchor)
+    {
+        anchorNode = AnchorNode(anchor)
+
+        wantedText = edittextWantedTextEdit!!.text.toString()
+        if (wantedText.isNullOrEmpty()){wantedText = "Missing text....."}
+
+        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true,storageManager.resolvedArNote)
+        node!!.setParent(anchorNode)
+        fragment.arSceneView.scene.addChild(anchorNode)
+        node!!.select()
+    }
+
+    private fun showFilterDialog(){
+
+        val materialDialog = MaterialDialog(this)
+            .noAutoDismiss()
+            .customView(R.layout.layout_filter)
+
+        setMaterialDialogData(materialDialog)
+        spinnerDataUpload()
+        clearButton.setOnClickListener { setCloudAnchor(null) }
+        resolveButtonSetOnClickListener()
+        materialDialog.show()
+    }
+
+    private fun setMaterialDialogData(materialDialog: MaterialDialog)
+    {
+        edittextWantedTextEdit = materialDialog.findViewById(R.id.WantedTextEdit)
+        spinner = materialDialog.findViewById<AppCompatSpinner>(R.id.spinnerSelection)
+        clearButton = materialDialog.findViewById(R.id.clear_button)
+        resolveButton = materialDialog.findViewById(R.id.resolve_button)
+
+        materialDialog.findViewById<TextView>(R.id.positive_button).setOnClickListener{ materialDialog.dismiss() }
+        materialDialog.findViewById<TextView>(R.id.negative_button).setOnClickListener { materialDialog.dismiss() }
     }
 
     private fun resolveButtonSetOnClickListener()
@@ -115,61 +246,17 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         })
     }
 
-    private fun fragmentSetOnTapArPlaneListener()
+    private fun spinnerDataUpload()
     {
-        fragment.setOnTapArPlaneListener { hitResult: HitResult, plane: Plane, motionEvent: MotionEvent? ->
-
-            if (appAnchorState != NONE ) {return@setOnTapArPlaneListener}
-            newAnchor =fragment.arSceneView.session!!.hostCloudAnchor(hitResult.createAnchor())
-            setCloudAnchor(newAnchor)
-            appAnchorState = HOSTING
-            snackbarHelper.showMessage(this, "Now hosting anchor...")
-            addNodeToScene(fragment, cloudAnchor!!)
-        }
+        createFromResource(this, spinner_choices, simple_spinner_item)
+            .also { adapter -> adapter.setDropDownViewResource(simple_spinner_dropdown_item)
+                spinner!!.adapter = adapter }
     }
 
-    private fun setCloudAnchor(newAnchor: Anchor?)
+    override fun onOkPressed(dialogValue: String)
     {
-        if (cloudAnchor != null) {cloudAnchor!!.detach()}
-        cloudAnchor = newAnchor
-        appAnchorState = NONE
-    }
-
-    private fun addNodeToScene(fragment: ArFragment, anchor: Anchor)
-    {
-        anchorNode = AnchorNode(anchor)
-        wantedText = edittextWantedTextEdit!!.text.toString()
-        if (wantedText.isNullOrEmpty()){wantedText = "Missing text....."}
-        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true,storageManager.resolvedArNote)
-        node!!.setParent(anchorNode)
-        fragment.arSceneView.scene.addChild(anchorNode)
-        node!!.select()
-    }
-
-    private fun onUpdateFrame(frameTime: FrameTime) {checkUpdatedAnchor()}
-
-    @Synchronized
-    private fun checkUpdatedAnchor()
-    {
-        if (appAnchorState != HOSTING && appAnchorState != RESOLVING) {return}
-        cloudState = cloudAnchor!!.cloudAnchorState
-        when(appAnchorState)
-        {
-            HOSTING ->
-            {
-                if (cloudState.isError){ afterCloudAnchorStateCheck(NONE,"Error hosting anchor.. ") }
-                else if (cloudState == Anchor.CloudAnchorState.SUCCESS){
-                    appAnchorState_Hosting_cloudAnchorState_Success()
-                    Handler().postDelayed({insertArNoteIntoLocalDb()},10000)
-                }
-            }
-            RESOLVING ->
-            {
-                if (cloudState.isError){ afterCloudAnchorStateCheck(NONE,"Error resolving anchor.. ")}
-                else if (cloudState == Anchor.CloudAnchorState.SUCCESS){ afterCloudAnchorStateCheck(
-                    RESOLVED,"Anchor resolved successfully")}
-            }
-        }
+        shortCode = dialogValue.toInt()
+        getCloudAnchorId(shortCode!!)
     }
 
     private fun getCloudAnchorId(shortCode: Int)
@@ -183,76 +270,6 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
             snackbarHelper.showMessage(this, "Now Resolving Anchor...")
             appAnchorState = RESOLVING
         }
-    }
-
-    private fun appAnchorState_Hosting_cloudAnchorState_Success()
-    {
-        storageManager.nextShortCode(object : ShortCodeListener
-        {
-            override fun onShortCodeAvailable(shortCode: Int?)
-            {
-                if (shortCode == null)
-                {
-                    snackbarHelper.showMessageWithDismiss(this@ArCameraActivity, "Could not get shortCode")
-                    return
-                }
-                nextShortCode = shortCode
-                initializeArNoteModel()
-                storageManager.storeUsingShortCode(shortCode, cloudAnchor!!.cloudAnchorId,currentArNote!!.type,currentArNote!!.text, currentArNote!!.date)
-                currentArNote!!.cloudAnchorId = storageManager.storedCloudAnchorId
-                snackbarHelper.showMessageWithDismiss(this@ArCameraActivity,"Anchor hosted! Cloud Short Code: $shortCode")
-                Toast.makeText(applicationContext,"Anchor hosted! Cloud Short Code: $shortCode", Toast.LENGTH_SHORT).show()
-            }
-        })
-        appAnchorState = HOSTED
-    }
-
-    private fun afterCloudAnchorStateCheck(_appAnchorState: AppAnchorState, message : String)
-    {
-        snackbarHelper.showMessageWithDismiss(this@ArCameraActivity, message + cloudState)
-        appAnchorState = _appAnchorState
-    }
-
-    private fun showFilterDialog(){
-
-        val materialDialog = MaterialDialog(this)
-            .noAutoDismiss()
-            .customView(R.layout.layout_filter)
-
-        edittextWantedTextEdit = materialDialog.findViewById(R.id.WantedTextEdit)
-        spinner = materialDialog.findViewById<AppCompatSpinner>(R.id.spinnerSelection)
-        clearButton = materialDialog.findViewById(R.id.clear_button)
-        resolveButton = materialDialog.findViewById(R.id.resolve_button)
-
-        spinnerDataUpload()
-
-        clearButton.setOnClickListener { setCloudAnchor(null) }
-
-        resolveButtonSetOnClickListener()
-
-        materialDialog.findViewById<TextView>(R.id.positive_button).setOnClickListener{ materialDialog.dismiss() }
-        materialDialog.findViewById<TextView>(R.id.negative_button).setOnClickListener { materialDialog.dismiss() }
-        materialDialog.show()
-    }
-
-    override fun onOkPressed(dialogValue: String)
-    {
-        shortCode = dialogValue.toInt()
-        getCloudAnchorId(shortCode!!)
-    }
-
-    private fun initializeArNoteModel()
-    {
-        val type = typeOfArnoteSelector()
-        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
-        cloud_anchorId = "0"
-        currentArNote = ArNote(
-            type = type,
-            text = wantedText!!,
-            date = currentDate,
-            shortcode = nextShortCode!!.toString(),
-            cloudAnchorId = cloud_anchorId!!)
     }
 
     private fun insertArNoteIntoLocalDb() { arCameraActivityViewModel.insertNodeIntoLocalDb(currentArNote!!) }

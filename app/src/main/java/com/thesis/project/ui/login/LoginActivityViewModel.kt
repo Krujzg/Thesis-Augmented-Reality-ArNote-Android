@@ -66,11 +66,7 @@ class LoginActivityViewModel(application: Application) :AndroidViewModel(applica
         return false
     }
 
-    private fun checkIfTheEditTextsValuesAreNullOrEmpty() : Boolean
-    {
-        return !(displayUserName.value.isNullOrEmpty() ||
-                displayPassword.value.isNullOrEmpty() )
-    }
+    private fun checkIfTheEditTextsValuesAreNullOrEmpty() : Boolean = !(displayUserName.value.isNullOrEmpty() || displayPassword.value.isNullOrEmpty() )
 
     private fun checkIfUsersListContainsGivenUserInputs(users : List<User>, username : String, password: String) : Boolean
     {
@@ -93,5 +89,4 @@ class LoginActivityViewModel(application: Application) :AndroidViewModel(applica
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) { callbacks.add(callback) }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) { callbacks.remove(callback) }
-
 }

@@ -22,6 +22,5 @@
         app:msrv_gravity="start"
         app:msrv_ms_per_inch="100"
         app:msrv_snap_count="2" />
-
 </LinearLayout>
 </ScrollView>

@@ -48,9 +48,8 @@ class RegisterActivityViewModel (application: Application) : AndroidViewModel(ap
                     userDao!!.insertUser(
                         User(username = displayUserName.value!!,
                             email = displayUserEmail.value!!,
-                            password = displayPassword.value!!)
-                    )
-                }
+                            password = displayPassword.value!!)) }
+
                 showToast("Register is successful")
                 return true
             }

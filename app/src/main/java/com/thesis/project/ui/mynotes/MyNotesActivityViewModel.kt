@@ -15,7 +15,6 @@ class MyNotesActivityViewModel(application: Application) : AndroidViewModel(appl
         arnoteDao = ArNoteLocalDataBase
             .getDatabase(application)
             .arNoteDao()
-
     }
 
     fun getAllArNotes() : LiveData<List<ArNote>> =  arnoteDao.getAllArNote()

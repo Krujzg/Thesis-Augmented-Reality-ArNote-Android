@@ -25,10 +25,7 @@ public class StorageManager {
     public static String storedCloudAnchorId;
 
     /** Listener for a new Cloud Anchor ID from the Firebase Database. */
-    public interface CloudAnchorIdListener
-    {
-        void onCloudAnchorIdAvailable(String cloudAnchorId);
-    }
+    public interface CloudAnchorIdListener { void onCloudAnchorIdAvailable(String cloudAnchorId);}
 
     private static final String TAG = StorageManager.class.getName();
     private static final String KEY_ROOT_DIR = "shared_anchor_codelab_root";
@@ -61,12 +58,9 @@ public class StorageManager {
     }
 
     /** Gets a new short code that can be used to store the anchor ID. */
-    public void nextShortCode(ShortCodeListener listener)
-    {
-        // Run a transaction on the node containing the next short code available. This increments the
-        // value in the database and retrieves it in one atomic all-or-nothing operation.
-         rootRef.child(KEY_NEXT_SHORT_CODE).runTransaction(getTransactionHandler(listener));
-    }
+    // Run a transaction on the node containing the next short code available. This increments the
+    // value in the database and retrieves it in one atomic all-or-nothing operation.
+    public void nextShortCode(ShortCodeListener listener) { rootRef.child(KEY_NEXT_SHORT_CODE).runTransaction(getTransactionHandler(listener)); }
 
     /** Stores the cloud anchor ID in the configured Firebase Database. */
     public void storeUsingShortCode(int shortCode, String cloudAnchorId, String text, String type,String date)
@@ -79,15 +73,11 @@ public class StorageManager {
         rootRef.child(KEY_PREFIX + shortCode).child(KEY_SHORTCODE).setValue(String.valueOf(shortCode));
     }
 
-
     /**
      * Retrieves the cloud anchor ID using a short code. Returns an empty string if a cloud anchor ID
      * was not stored for this short code.
      */
-    public void getCloudAnchorID(int shortCode, CloudAnchorIdListener listener)
-    {
-         rootRef.child(KEY_PREFIX + shortCode).addListenerForSingleValueEvent(getValueEventListener(listener,shortCode));
-    }
+    public void getCloudAnchorID(int shortCode, CloudAnchorIdListener listener) { rootRef.child(KEY_PREFIX + shortCode).addListenerForSingleValueEvent(getValueEventListener(listener,shortCode)); }
 
     private ValueEventListener getValueEventListener(CloudAnchorIdListener listener,Integer shortCode)
     {
@@ -99,11 +89,7 @@ public class StorageManager {
                 String type = dataSnapshot.child("type").getValue(String.class);
                 String text = dataSnapshot.child("text").getValue(String.class);
                 String date = dataSnapshot.child("date").getValue(String.class);
-                resolvedArNote = new ArNote(0,type,text,date,shortCode.toString(),cloudanchorid);
-                resolvedArNote.setCloudAnchorId(cloudanchorid);
-                resolvedArNote.setType(type);
-                resolvedArNote.setText(text);
-                resolvedArNote.setDate(date);
+                setResolvedArNote(cloudanchorid, type, text, date, shortCode.toString());
                 listener.onCloudAnchorIdAvailable(cloudanchorid);
             }
 
@@ -111,6 +97,8 @@ public class StorageManager {
             public void onCancelled(@NotNull DatabaseError error) { listener.onCloudAnchorIdAvailable(null); }
         };
     }
+
+    private void setResolvedArNote(String cloudanchorid, String type, String text,String date,String shortCode) { resolvedArNote = new ArNote(0,type,text,date,shortCode,cloudanchorid); }
 
     private Transaction.Handler getTransactionHandler(ShortCodeListener listener)
     {
