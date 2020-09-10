@@ -10,10 +10,12 @@ import androidx.lifecycle.MutableLiveData
 import com.thesis.project.data.roomdb.user.UserDao
 import com.thesis.project.data.roomdb.user.UserLocalDataBase
 import com.thesis.project.models.user.User
+import com.thesis.project.util.SnackbarHelper
 
 class LoginActivityViewModel(application: Application) :AndroidViewModel(application),Observable
 {
     var userDao : UserDao? = null
+    private var snackbarHelper = SnackbarHelper()
 
     var users : List<User>? = null
 

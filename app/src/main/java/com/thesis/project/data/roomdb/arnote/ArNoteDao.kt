@@ -12,6 +12,6 @@ interface ArNoteDao
     @Insert
     suspend fun insertArNote(arnote : ArNote)
 
-    @Query("SELECT * from arnote_table")
+    @Query("SELECT * from arnote_table ORDER BY shortcode DESC ")
     fun getAllArNote() : LiveData<List<ArNote>>
 }

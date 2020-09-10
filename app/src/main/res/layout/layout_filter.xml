@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:id="@+id/layout_filter_linearlayout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="@color/black">
 
     <TextView
+        android:id="@+id/action_buttons_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textview_ActionButtons"
@@ -16,6 +19,7 @@
         android:layout_margin="@dimen/layout_filter_margin"/>
 
     <View
+        android:id="@+id/action_buttons_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_height"
         android:background="@color/lightgray"
@@ -59,6 +63,7 @@
         android:columnCount="2">
 
         <TextView
+            android:id="@+id/type_textview"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="0"
@@ -85,6 +90,7 @@
 
 
     <TextView
+        android:id="@+id/arnote_text_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/arnote_text"
@@ -95,6 +101,7 @@
         android:layout_margin="@dimen/layout_filter_margin"/>
 
     <View
+        android:id="@+id/arnote_view_textview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_height"
         android:background="@color/lightgray"

@@ -10,7 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9ae0ba-2d4d-4601-86c5-6363e6baf380" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/androidtestutil/EspressoTestsMatchers.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/androidtestutil/ImageViewHasDrawableMatcher.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/androidtestutil/InfixFunctionsForInstrumentationTests.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/androidtestutil/ToastMatcher.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/androidtestutil/testrule/EspressoIdlingResourceRule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/EndToEndTestSuite.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/arcamera/ArCameraActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/launcher/LauncherActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/login/LoginActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/main/MainActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/register/RegisterActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ui/settings/SettingsActivityTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/util/testutil/EspressoIdlingResource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/arcamera/ArCameraActivityViewModelTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/login/LoginActivityViewModelTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/mynotes/MyNotesActivityViewModelTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/register/RegisterActivityViewModelTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/settings/SettingsActivityViewModelTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/testutil/CoroutineTestRule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/testutil/LiveDataTestUtil.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/testutil/getFakeArNoteList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -19,33 +39,27 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/thesis/project/ExampleInstrumentedTest.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/controller/UiTextRenderable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/controller/UiTextRenderable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/repository/firebase/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/repository/firebase/StorageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/data/roomdb/arnote/ArNoteDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/data/roomdb/arnote/ArNoteDao.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/arcamera/ArCameraActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/arcamera/ArCameraActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/launcher/LauncherActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/launcher/LauncherActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/login/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/login/LoginActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/login/LoginActivityViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesActivityViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/mynotes/MyNotesAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/register/RegisterActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/ui/register/RegisterActivityViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/util/PreferenceManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/util/PreferenceManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/util/ResolveDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/thesis/project/util/ResolveDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_corner_warning.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_corner_warning.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_arcamera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_arcamera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/cardview_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cardview_background.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_launcher.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mynotes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mynotes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/label_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/label_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_filter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_filter.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recycler_item_arnote_model.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_item_arnote_model.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ExampleUnitTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,11 +97,13 @@
       <list>
         <option value="Kotlin Enum" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="valueResourceFile" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -102,9 +118,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-09-10T08:41:30.768Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/com/thesis/project/ui/testutil" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
@@ -115,12 +137,6 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateKotlinClassDialog.RecentsKey">
-      <recent name="com.thesis.project.models" />
-    </key>
-    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="com.thesis.project" />
-    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.thesis.project.data.roomdb.user" />
       <recent name="com.thesis.project.data.roomdb.arnote" />
@@ -128,18 +144,37 @@
       <recent name="com.thesis.project.models.arnote" />
       <recent name="com.thesis.project.repository.roomdb.user" />
     </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.thesis.project.models" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.thesis.project.ui.settings" />
+      <recent name="com.thesis.project.ui.register" />
+      <recent name="com.thesis.project.ui.mynotes" />
+      <recent name="com.thesis.project.ui.login" />
+      <recent name="com.thesis.project.ui.arcamera" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.thesis.project" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gergo\Desktop\Thesis_Android\Thesis-Augmented-Reality-ArNote-Android\app\src\test\java\com\thesis\project\ui\testutil" />
+      <recent name="C:\Users\gergo\Desktop\Thesis_Android\Thesis-Augmented-Reality-ArNote-Android\app\src\androidTest\java\com\thesis\project" />
+      <recent name="C:\Users\gergo\Desktop\Thesis_Android\Thesis-Augmented-Reality-ArNote-Android\app\src\main\java\com\thesis\project\util" />
+      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\res\xml" />
+      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\java\com\thesis\project\repository\roomdb\arnote" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.thesis.project" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\res\xml" />
-      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\java\com\thesis\project\repository\roomdb\arnote" />
-      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\res\layout" />
-      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\java\com\thesis\project\util" />
-      <recent name="C:\Users\gergo\Desktop\Thesis\app\src\main\java\com\thesis\project\ui" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gergo\Desktop\Thesis_Android\Thesis-Augmented-Reality-ArNote-Android\app\src\test\java\com\thesis\project\ui\testutil" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -198,6 +233,255 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SettingsActivityTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="com.thesis.project.ui.settings.SettingsActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_isRegistering...() (1)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="METHOD_NAME" value="test_isRegisteringUserWithLeftOutUserNameShowsToastMessageTextAtMissingEdittextInputData" />
+      <option name="CLASS_NAME" value="com.thesis.project.ui.register.RegisterActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_isRegistering...() (2)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="METHOD_NAME" value="test_isRegisteringUserWithLeftOutEmailShowsToastMessageTextAtMissingEdittextInputData" />
+      <option name="CLASS_NAME" value="com.thesis.project.ui.register.RegisterActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_isRegistering...() (3)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="METHOD_NAME" value="test_isRegisteringUserWithLeftOutPasswordEdittextsShowsToastMessageTextAtMissingEdittextInputData" />
+      <option name="CLASS_NAME" value="com.thesis.project.ui.register.RegisterActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_isRegistering...()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="METHOD_NAME" value="test_isRegisteringUserWithDifferentPasswordShowsToastMessageTextAtPasswordError" />
+      <option name="CLASS_NAME" value="com.thesis.project.ui.register.RegisterActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android Instrumented Tests.SettingsActivityTest" />
+        <item itemvalue="Android Instrumented Tests.test_isRegistering...() (3)" />
+        <item itemvalue="Android Instrumented Tests.test_isRegistering...() (2)" />
+        <item itemvalue="Android Instrumented Tests.test_isRegistering...() (1)" />
+        <item itemvalue="Android Instrumented Tests.test_isRegistering...()" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\gergo\AppData\Roaming\Subversion</configuration>
@@ -251,71 +535,75 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="454" height="438" key="DebuggerActiveHint/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140290415" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1599205410979">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1599667619027">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599132997927" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599667619027" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599205410979" />
-    <state width="2516" height="345" key="GridCell.Tab.0.bottom" timestamp="1599479307898">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="239" key="GridCell.Tab.0.bottom" timestamp="1599735334153">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218159987" />
-    <state width="1476" height="257" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="239" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599735334153" />
     <state width="1491" height="556" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599302467311" />
     <state width="2516" height="345" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307898" />
-    <state width="2516" height="345" key="GridCell.Tab.0.center" timestamp="1599479307898">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="239" key="GridCell.Tab.0.center" timestamp="1599735334153">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218159987" />
-    <state width="1476" height="257" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915360" />
+    <state width="1491" height="239" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599735334153" />
     <state width="1491" height="556" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599302467310" />
     <state width="2516" height="345" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307898" />
-    <state width="2516" height="345" key="GridCell.Tab.0.left" timestamp="1599479307898">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="239" key="GridCell.Tab.0.left" timestamp="1599735334153">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218159987" />
-    <state width="1476" height="257" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915360" />
+    <state width="1491" height="239" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599735334153" />
     <state width="1491" height="556" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599302467310" />
     <state width="2516" height="345" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307898" />
-    <state width="2516" height="345" key="GridCell.Tab.0.right" timestamp="1599479307898">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="239" key="GridCell.Tab.0.right" timestamp="1599735334153">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218159987" />
-    <state width="1476" height="257" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="239" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599735334153" />
     <state width="1491" height="556" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599302467311" />
     <state width="2516" height="345" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307898" />
-    <state width="2516" height="345" key="GridCell.Tab.1.bottom" timestamp="1599479307899">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="258" key="GridCell.Tab.1.bottom" timestamp="1599725821322">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218141458" />
-    <state width="1476" height="257" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599725821322" />
     <state width="1491" height="259" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599301916370" />
     <state width="2516" height="345" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307899" />
-    <state width="2516" height="345" key="GridCell.Tab.1.center" timestamp="1599479307899">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="258" key="GridCell.Tab.1.center" timestamp="1599725821322">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218141458" />
-    <state width="1476" height="257" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="258" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599725821322" />
     <state width="1491" height="259" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1599301916369" />
     <state width="2516" height="345" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307899" />
-    <state width="2516" height="345" key="GridCell.Tab.1.left" timestamp="1599479307898">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="258" key="GridCell.Tab.1.left" timestamp="1599725821322">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218141458" />
-    <state width="1476" height="257" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="258" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599725821322" />
     <state width="1491" height="259" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1599301916369" />
     <state width="2516" height="345" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307898" />
-    <state width="2516" height="345" key="GridCell.Tab.1.right" timestamp="1599479307899">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1491" height="258" key="GridCell.Tab.1.right" timestamp="1599725821322">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1472" height="256" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599218141458" />
-    <state width="1476" height="257" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599140915361" />
+    <state width="1491" height="258" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599725821322" />
     <state width="1491" height="259" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1599301916369" />
     <state width="2516" height="345" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1599479307899" />
     <state x="277" y="55" key="SettingsEditor" timestamp="1599080513068">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599080513068" />
+    <state x="584" y="190" key="chooseDestDirectoryDialog" timestamp="1599722427996">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="584" y="190" key="chooseDestDirectoryDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599722427996" />
     <state x="372" y="19" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599049784554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -324,21 +612,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1598978041699" />
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1" timestamp="1599474438697">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="-1559" y="-12" width="1166" height="802" maximized="true" key="dock-window-1/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599135658185" />
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1599474438697" />
-    <state x="-1828" y="-12" width="1166" height="802" maximized="true" key="dock-window-2" timestamp="1599135658185">
+    <state x="-1707" y="-11" width="1200" height="808" maximized="true" key="dock-window-1" timestamp="1599669368143">
       <screen x="-1920" y="0" width="1536" height="824" />
     </state>
-    <state x="-1828" y="-12" width="1166" height="802" maximized="true" key="dock-window-2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599135658185" />
+    <state x="-1707" y="-11" width="1200" height="808" maximized="true" key="dock-window-1/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599669368143" />
+    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1599474438697" />
+    <state x="-1926" y="0" width="781" height="830" key="dock-window-2" timestamp="1599670307524">
+      <screen x="-1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1926" y="0" width="781" height="830" key="dock-window-2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599670307524" />
+    <state x="316" y="-19" width="1200" height="808" maximized="true" key="dock-window-3" timestamp="1599676843028">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="316" y="-19" width="1200" height="808" maximized="true" key="dock-window-3/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599676843028" />
+    <state x="-1822" y="-18" width="1200" height="808" key="dock-window-4" timestamp="1599721361218">
+      <screen x="-1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1822" y="-18" width="1200" height="808" key="dock-window-4/0.0.1536.824/-1920.0.1536.824@-1920.0.1536.824" timestamp="1599721361218" />
+    <state x="-1822" y="-18" width="1200" height="808" maximized="true" key="dock-window-4/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599676843028" />
     <state x="463" y="144" width="829" height="536" key="find.popup" timestamp="1599298773286">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="144" width="829" height="536" key="find.popup/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1599214835323" />
     <state x="463" y="144" width="829" height="536" key="find.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599069559594" />
     <state x="463" y="144" width="829" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1599298773286" />
+    <state x="540" y="115" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1599722428013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="540" y="115" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599722428013" />
     <state x="426" y="189" key="run.anything.popup" timestamp="1599208400808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

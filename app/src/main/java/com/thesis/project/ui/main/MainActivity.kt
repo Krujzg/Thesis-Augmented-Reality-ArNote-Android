@@ -10,6 +10,7 @@ import com.thesis.project.ui.arcamera.ArCameraActivity
 import com.thesis.project.ui.login.LoginActivity
 import com.thesis.project.ui.mynotes.MyNotesActivity
 import com.thesis.project.ui.settings.SettingsActivity
+import com.thesis.project.util.testutil.EspressoIdlingResource
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        EspressoIdlingResource.decrement()
         arnote.setOnClickListener{ startActivity(Intent(this, ArCameraActivity::class.java)) }
 
         settings.setOnClickListener{ startSettingsActivity() }

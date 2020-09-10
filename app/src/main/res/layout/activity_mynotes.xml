@@ -19,8 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
-        app:msrv_gravity="start"
-        app:msrv_ms_per_inch="100"
-        app:msrv_snap_count="2" />
+        app:msrv_gravity="start" />
 </LinearLayout>
 </ScrollView>

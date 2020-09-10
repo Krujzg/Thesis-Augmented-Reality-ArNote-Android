@@ -13,6 +13,7 @@ import com.google.ar.sceneform.ux.TransformableNode
 import com.google.ar.sceneform.ux.TransformationSystem
 import com.thesis.project.R
 import com.thesis.project.models.arnote.ArNote
+import com.thesis.project.repository.firebase.StorageManager
 import com.thesis.project.ui.arcamera.ArCameraActivity
 import com.thesis.project.ui.main.MainActivity
 import me.grantland.widget.AutofitTextView
@@ -23,13 +24,11 @@ class UiTextRenderable(context: Context,
                        text: String,
                        size: Float,
                        private var billboarding: Boolean,
-                       resolvedArNote: ArNote?) :TransformableNode(transformationSystem), Node.OnTapListener
+                       private var storageManager: StorageManager) :TransformableNode(transformationSystem), Node.OnTapListener
 {
     companion object { var arAutoFitTextView: AutofitTextView? = null }
 
     private var uiElement = Node()
-
-    private var resolvedArNote : ArNote?
     private lateinit var cameraPosition : Vector3
     private lateinit var uiPosition: Vector3
     private lateinit var direction: Vector3
@@ -40,7 +39,6 @@ class UiTextRenderable(context: Context,
         this.uiElement.setParent(this)
         this.uiElement.isEnabled = true
         this.uiElement.localPosition = Vector3(0.0f, size, 0.0f)
-        this.resolvedArNote = resolvedArNote
 
         viewRenderableBuilder(context,text)
 
@@ -67,27 +65,25 @@ class UiTextRenderable(context: Context,
         val type = getSelectedType()
         when (type)
         {
-            "Normal" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_normal, R.color.white)
+            "Normal"  -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_normal,  R.color.white)
             "Warning" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_warning, R.color.Black)
-            "Urgent" -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_urgent, R.color.white)
+            "Urgent"  -> arAutoFitTextViewCustomization(context, R.drawable.rounded_corner_urgent,  R.color.white)
         }
-        resolvedArNote = null
+        storageManager.resolvedArNote = null
     }
 
     private fun getSelectedType() : String
     {
-        return when(resolvedArNote)
+        return when(storageManager.resolvedArNote)
         {
             null -> ArCameraActivity.spinner!!.selectedItem.toString()
-            else -> resolvedArNote!!.type
+            else -> storageManager.resolvedArNote!!.type
         }
     }
 
     private fun viewRenderableBuilder(context: Context, text: String)
     {
-
         ViewRenderable.builder()
-
             .setView(context, R.layout.label_layout)
             .build()
             .thenAccept { uiRenderable: ViewRenderable ->
@@ -102,10 +98,10 @@ class UiTextRenderable(context: Context,
 
     private fun setArAutoTextViewText(text: String)
     {
-        when(resolvedArNote)
+        when(storageManager.resolvedArNote)
         {
-            null-> arAutoFitTextView!!.text = text
-            else -> arAutoFitTextView!!.text = resolvedArNote!!.text
+            null->  arAutoFitTextView!!.text = text
+            else -> arAutoFitTextView!!.text = storageManager.resolvedArNote!!.text
         }
     }
 

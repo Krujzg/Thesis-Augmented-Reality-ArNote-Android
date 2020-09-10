@@ -12,6 +12,7 @@ import com.thesis.project.databinding.ActivityRegisterBinding
 import com.thesis.project.ui.main.MainActivity
 import com.thesis.project.ui.register.RegisterActivity
 import com.thesis.project.ui.register.RegisterActivityViewModel
+import com.thesis.project.util.testutil.EspressoIdlingResource
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,7 +20,8 @@ import kotlinx.coroutines.withContext
 class LoginActivity : AppCompatActivity()
 {
     lateinit var loginActivityViewModel : LoginActivityViewModel
-    var isLoginSuccessful = false
+    private var isLoginSuccessful = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -42,5 +44,13 @@ class LoginActivity : AppCompatActivity()
 
     private fun getLoginStatus() { isLoginSuccessful = loginActivityViewModel.startLogin() }
 
-    private fun loginSetOnClickListener() { when(isLoginSuccessful) {true -> startActivity(Intent(this, MainActivity::class.java)) } }
+    private fun loginSetOnClickListener()
+    {
+        EspressoIdlingResource.increment()
+        when(isLoginSuccessful)
+        {
+            true -> startActivity(Intent(this, MainActivity::class.java))
+            false -> EspressoIdlingResource.decrement()
+        }
+    }
 }

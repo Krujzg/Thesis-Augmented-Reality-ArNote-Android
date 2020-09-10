@@ -21,7 +21,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
+
         <ImageView
+            android:id="@+id/login_image"
             android:layout_marginTop="@dimen/login_imageview_margintop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

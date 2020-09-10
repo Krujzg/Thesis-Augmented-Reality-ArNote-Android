@@ -139,7 +139,6 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
                 storageManager.storeUsingShortCode(shortCode, cloudAnchor!!.cloudAnchorId,currentArNote!!.text,currentArNote!!.type, currentArNote!!.date)
                 currentArNote!!.cloudAnchorId = storageManager.storedCloudAnchorId
                 snackbarHelper.showMessageWithDismiss(this@ArCameraActivity,"Anchor hosted! Cloud Short Code: $shortCode")
-                Toast.makeText(applicationContext,"Anchor hosted! Cloud Short Code: $shortCode", Toast.LENGTH_SHORT).show()
             }
         })
         appAnchorState = HOSTED
@@ -197,9 +196,12 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
         anchorNode = AnchorNode(anchor)
 
         wantedText = edittextWantedTextEdit!!.text.toString()
-        if (wantedText.isNullOrEmpty()){wantedText = "Missing text....."}
+        if (wantedText.isNullOrEmpty())
+        {
+            wantedText = "Missing text....."
+        }
 
-        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true,storageManager.resolvedArNote)
+        node = UiTextRenderable(this,fragment.transformationSystem,wantedText!!,0.3f,true,storageManager)
         node!!.setParent(anchorNode)
         fragment.arSceneView.scene.addChild(anchorNode)
         node!!.select()
@@ -261,16 +263,24 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
 
     private fun getCloudAnchorId(shortCode: Int)
     {
-        storageManager.getCloudAnchorID(shortCode)
-        {
-                cloudAnchorId ->
-            resolvedAnchor = fragment.arSceneView.session!!.resolveCloudAnchor(cloudAnchorId)
-            setCloudAnchor(resolvedAnchor)
-            addNodeToScene(fragment,cloudAnchor!!)
-            snackbarHelper.showMessage(this, "Now Resolving Anchor...")
-            appAnchorState = RESOLVING
+        try {
+            storageManager.getCloudAnchorID(shortCode)
+            {
+                    cloudAnchorId ->
+                resolvedAnchor = fragment.arSceneView.session!!.resolveCloudAnchor(cloudAnchorId)
+                setCloudAnchor(resolvedAnchor)
+                addNodeToScene(fragment,cloudAnchor!!)
+                snackbarHelper.showMessage(this, "Now Resolving Anchor...")
+                appAnchorState = RESOLVING
+            }
         }
+        catch (exception: Exception)
+        {
+            snackbarHelper.showMessage(this, "Error: Incorrect found")
+        }
+
     }
+
 
     private fun insertArNoteIntoLocalDb() { arCameraActivityViewModel.insertNodeIntoLocalDb(currentArNote!!) }
 
