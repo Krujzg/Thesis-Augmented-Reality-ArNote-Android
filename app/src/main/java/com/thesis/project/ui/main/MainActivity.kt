@@ -9,7 +9,6 @@ import com.thesis.project.R
 import com.thesis.project.ui.arcamera.ArCameraActivity
 import com.thesis.project.ui.login.LoginActivity
 import com.thesis.project.ui.mynotes.MyNotesActivity
-import com.thesis.project.ui.settings.SettingsActivity
 import com.thesis.project.util.testutil.EspressoIdlingResource
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,8 +23,6 @@ class MainActivity : AppCompatActivity()
         EspressoIdlingResource.decrement()
         arnote.setOnClickListener{ startActivity(Intent(this, ArCameraActivity::class.java)) }
 
-        settings.setOnClickListener{ startSettingsActivity() }
-
         logout.setOnClickListener{ finishAffinity() }
 
         mynotes.setOnClickListener{ startMyNotesActivity() }
@@ -38,12 +35,6 @@ class MainActivity : AppCompatActivity()
             true -> startActivity(Intent(this,LoginActivity::class.java))
             false -> delayTimeBetweenTwoBackButtonPress()
         }
-    }
-
-    private fun startSettingsActivity()
-    {
-        startActivity(Intent(this, SettingsActivity::class.java))
-        overridePendingTransition( R.xml.slide_in_up, R.xml.slide_out_up )
     }
 
     private fun startMyNotesActivity()

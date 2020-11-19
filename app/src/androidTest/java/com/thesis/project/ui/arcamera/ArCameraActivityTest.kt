@@ -42,9 +42,6 @@ class ArCameraActivityTest
     fun test_isArcamera_relativelayoutVisible() { arcamera_relativelayou checkThat isDisplayed() }
 
     @Test
-    fun test_issetting_buttonVisible() { setting_button checkThat isDisplayed() }
-
-    @Test
     fun test_isback_buttonVisible() { back_button checkThat isDisplayed() }
 
     @Test

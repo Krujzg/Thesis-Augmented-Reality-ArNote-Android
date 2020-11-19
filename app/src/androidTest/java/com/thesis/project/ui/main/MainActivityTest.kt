@@ -40,22 +40,13 @@ class MainActivityTest
 
     @Test
     fun test_isMainLinearLayoutVisible() { main_linearlayout checkThat isDisplayed() }
-/*
-    @Test
-    fun test_isMainLinearLayoutHasBackGroundTurquoise() { main_linearlayout checkThat hasBackground(R.color.turquoise) }
-*/
+
     @Test
     fun test_isArNoteCardViewVisible() { arnote checkThat isDisplayed() }
 
     @Test
     fun test_isArnote_main_imageviewVisible() { arnote_main_imageview checkThat isDisplayed() }
 
-    /*
-    @Test
-    fun test_isarnote_main_imageviewHasBackGroundcerclebackgroundpurple() { arnote_main_imageview checkThat hasBackground(drawable.cerclebackgroundpurple) }
-
-
-     */
     @Test
     fun test_isArnote_main_titleContainsTitle() { ar_note_title checkThatTextIs "AR Note" }
 
@@ -74,16 +65,11 @@ class MainActivityTest
     @Test
     fun test_ismynotes_main_imageviewVisible() { mynotes_main_imageview checkThat isDisplayed() }
 
-    /*
-    @Test
-    fun test_ismynotes_main_imageviewHasBackGroundcerclebackgroundpink() { mynotes_main_imageview checkThat hasBackground(drawable.cerclebackgroundpink) }
-*/
     @Test
     fun test_ismynotes_main_titleContainsTitle() { mynotes_main_title checkThatTextIs "My Notes" }
 
     @Test
     fun test_ismynotes_main_viewVisible() { mynotes_main_view checkThat isDisplayed() }
-
 
     @Test
     fun test_ismynotes_main_descVisible() { mynotes_main_desc checkThat isDisplayed() }
@@ -96,10 +82,7 @@ class MainActivityTest
 
     @Test
     fun test_islogout_main_imageviewVisible() { logout_main_imageview checkThat isDisplayed() }
-/*
-    @Test
-    fun test_islogout_main_imageviewHasBackGroundcerclebackgroundyello() { logout_main_imageview checkThat hasBackground(drawable.cerclebackgroundyello) }
-*/
+
     @Test
     fun test_islogout_main_titleContainsTitle() { logout_main_title checkThatTextIs "Logout" }
 
@@ -112,28 +95,6 @@ class MainActivityTest
 
     @Test
     fun test_islogout_main_descContainsDescription() { logout_main_desc checkThatTextIs "Logout from the app" }
-
-    @Test
-    fun test_issettingsCardViewVisible() { settings checkThat isDisplayed() }
-
-    @Test
-    fun test_issettings_main_imageviewVisible() { settings_main_imageview checkThat isDisplayed() }
-
-    /*
-    @Test
-    fun test_issettings_main_imageviewHasBackGroundcerclebackgroundgreen() { settings_main_imageview checkThat hasBackground(drawable.cerclebackgroundgreen) }
-*/
-    @Test
-    fun test_issettings_main_titleContainsTitle() { settings_main_title checkThatTextIs "Settings" }
-
-    @Test
-    fun test_issettings_main_viewVisible() { settings_main_view checkThat isDisplayed() }
-
-    @Test
-    fun test_issettings_main_descVisible() { settings_main_desc checkThat isDisplayed() }
-
-    @Test
-    fun test_issettings_main_descContainsDescription() { settings_main_desc checkThatTextIs "Change your data" }
 
     @Test
     fun test_willTheArCameraActivityShowUpAfterClickOnArNoteCard()
@@ -149,25 +110,4 @@ class MainActivityTest
         mynotes perform click()
         mynotes_scrollview checkThat isDisplayed()
     }
-
-    /*
-    @Test
-    fun test_willTheSettingsActivityShowUpAfterClickOnSettingCard()
-    {
-        settings perform click()
-        arcamera_relativelayou checkThat isDisplayed()
-    }
-
-     */
-/*
-    @Test
-    fun test_willTheAppGetKilledAfterClickOnLogoutCard()
-    {
-        logout perform click()
-        main_linearlayout checkThat not(isDisplayed())
-
-    }
-
- */
-
 }

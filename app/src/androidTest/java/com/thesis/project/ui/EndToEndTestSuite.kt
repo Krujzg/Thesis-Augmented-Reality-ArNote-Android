@@ -5,7 +5,6 @@ import com.thesis.project.ui.launcher.LauncherActivityTest
 import com.thesis.project.ui.login.LoginActivityTest
 import com.thesis.project.ui.main.MainActivityTest
 import com.thesis.project.ui.register.RegisterActivityTest
-import com.thesis.project.ui.settings.SettingsActivityTest
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 
@@ -14,6 +13,5 @@ import org.junit.runners.Suite
                     LauncherActivityTest::class,
                     LoginActivityTest::class,
                     MainActivityTest::class,
-                    RegisterActivityTest::class,
-                    SettingsActivityTest::class)
+                    RegisterActivityTest::class)
 class EndToEndTestSuite

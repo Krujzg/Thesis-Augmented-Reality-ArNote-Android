@@ -281,7 +281,6 @@ class ArCameraActivity : AppCompatActivity(), OkListener {
 
     }
 
-
     private fun insertArNoteIntoLocalDb() { arCameraActivityViewModel.insertNodeIntoLocalDb(currentArNote!!) }
 
     private fun typeOfArnoteSelector() : String = spinner!!.selectedItem.toString()

@@ -123,52 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/settings"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="@dimen/main_cardview_width"
-            android:layout_height="@dimen/main_cardview_height"
-            android:layout_margin="@dimen/main_main_margin">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/settings_main_imageview"
-                    android:layout_width="@dimen/main_imageview_width"
-                    android:layout_height="@dimen/main_imageview_heigth"
-                    android:background="@drawable/cerclebackgroundgreen"
-                    android:src="@drawable/outline_settings_black_48"
-                    android:padding="@dimen/main_linear_layout_padding"/>
-
-                <TextView
-                    android:id="@+id/settings_main_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/main_main_margin"
-                    android:text="@string/main_settings_text"/>
-                <View
-                    android:id="@+id/settings_main_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/main_view_heigth"
-                    android:background="@color/lightgray"
-                    android:layout_margin="@dimen/main_main_margin"/>
-                <TextView
-                    android:id="@+id/settings_main_desc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/main_settings_desc"
-                    android:padding="@dimen/arnote_desc_padding"
-                    android:textColor="@android:color/darker_gray"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/logout"
             android:foreground="?android:attr/selectableItemBackground"
